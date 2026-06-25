@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  /* Tema Claro (Papel/Pergamino de Biblioteca con Alto Contraste) */
+  --background: #fbf9f3;          /* Fondo de página: pergamino muy claro y limpio */
+  --foreground: #221a15;          /* Texto principal: café espresso oscuro */
+  
+  --color-paper-light: #fbf9f3;
+  --color-paper-card: #ffffff;    /* Tarjetas: blanco papel puro para destacar sobre el fondo */
+  --color-paper-border: #dfcfb7;  /* Bordes: pergamino cálido definido */
+  --color-paper-text: #221a15;
+  --color-paper-muted: #6e5e53;   /* Texto secundario de alta visibilidad */
+  --color-paper-active: #f3ebdc;  /* Elementos activos o seleccionados */
+  
+  /* Colores de acento */
+  --color-lib-terracota: #a73a15;   /* Terracota más vibrante para contraste */
+  --color-lib-gold: #c26905;        /* Ámbar/Bronce de alto contraste */
+  --color-lib-forest: #14532d;      /* Verde Bosque */
+  --color-lib-forest-light: #166534; /* Verde esmeralda definido */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Tema Oscuro (Estilo Bitácora Caoba de Alto Contraste) */
+    --background: #0d0a09;          /* Fondo de página: café casi negro profundo */
+    --foreground: #f4eee0;          /* Texto principal: marfil claro */
+    
+    --color-paper-light: #0d0a09;
+    --color-paper-card: #201816;    /* Tarjetas: caoba medio para destacar del fondo */
+    --color-paper-border: #4d3932;  /* Bordes: bronce/madera definidos */
+    --color-paper-text: #f4eee0;
+    --color-paper-muted: #a89485;   /* Texto secundario */
+    --color-paper-active: #322521;  /* Selección activa */
+  }
+}
+
+@theme inline {
+  /* Fuentes */
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  
+  /* Mapeo de colores personalizados del tema de biblioteca */
+  --color-bg-paper: var(--color-paper-light);
+  --color-card-paper: var(--color-paper-card);
+  --color-border-paper: var(--color-paper-border);
+  --color-text-paper: var(--color-paper-text);
+  --color-muted-paper: var(--color-paper-muted);
+  --color-active-paper: var(--color-paper-active);
+  
+  --color-brand-primary: var(--color-lib-terracota);
+  --color-brand-accent: var(--color-lib-gold);
+  --color-brand-forest: var(--color-lib-forest);
+  --color-brand-forest-light: var(--color-lib-forest-light);
+}
+
+body {
+  background: var(--color-bg-paper);
+  color: var(--color-text-paper);
+  font-family: var(--font-sans);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
